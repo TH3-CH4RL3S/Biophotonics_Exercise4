@@ -68,29 +68,64 @@
 
 ---
 
-## Python Implementation Outline
-### 1. Initialize Camera
-- Detect and configure the camera using PyPylon or IDS peak.
+# General Workflow for Laser Speckle Imaging (LSI)
 
-### 2. Record Baseline
-```python
-from pypylon import pylon
-import cv2
+## **1. Initialize and Configure the Camera**
+- Use **PyPylon** for Basler cameras or **IDS peak** for IDS cameras.
+- Set the following parameters:
+  - **Exposure time**: 1000–5000 µs (adjust as needed).
+  - **Frame rate**: 120 fps.
+  - **Pixel format**: Monochrome (e.g., `Mono8`).
+  - Define the **Region of Interest (ROI)** if applicable.
 
-camera = pylon.InstantCamera(pylon.TlFactory.GetInstance().CreateFirstDevice())
-camera.Open()
-camera.StartGrabbing()
+---
 
-# Record sequence
-frames = []
-for _ in range(1200):  # 10 seconds at 120 fps
-    grab_result = camera.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
-    if grab_result.GrabSucceeded():
-        frames.append(grab_result.Array)
-    grab_result.Release()
+## **2. Capture a Sequence of Frames**
+- Record frames for different phases of the experiment:
+  - **Baseline measurement**: Record for 10 seconds at 120 fps.
+  - **During stimulation**: Record as the stimulation takes effect.
+  - **Follow-up measurement**: Record after the stimulation effect dissipates.
+- Save captured frames for further processing.
 
-camera.Close()
-```
+---
+
+## **3. Process the Images**
+- **Calculate Temporal Contrast for LSI**:
+  - Use OpenCV and NumPy to process frames.
+  - Compute the temporal contrast:
+        $$LSI = \frac{\sigma}{\mu}$$
+        Where:
+        $\sigma$ is the standard deviation of intensity values and
+        $\mu$ is the mean intensity value.
+  - Generate the LSI image for visualization.
+- **Convert Frames to Video**:
+  - Save the captured frames as a video file for documentation or playback.
+
+---
+
+## **4. Analyze and Compare ROIs**
+- Define two ROIs:
+  - **Stimulated ROI**: Area where the stimulation was applied.
+  - **Reference ROI**: Non-stimulated area for comparison.
+- Calculate the mean perfusion for each ROI:
+  - Compare perfusion changes between stimulated and reference areas.
+
+---
+
+## **5. Validate and Compare Results**
+- Use provided software (e.g., **moor instruments**) to validate your LSI results.
+- Compare:
+  - Your calculated LSI images.
+  - Perfusion changes in the stimulated and reference ROIs.
+
+---
+
+## **6. Document and Submit**
+- Prepare documentation for the experiment:
+  - Include the protocol and Python scripts.
+  - Provide a README with setup instructions.
+  - Record and submit results as per the guidelines.
+
 
 ## Libraries:
 
