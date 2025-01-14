@@ -5,7 +5,7 @@ import glob
 import matplotlib.pyplot as plt
 
 # Parameters
-frame_folder = "recorded_frames"
+frame_folder = "recorded_frames_COLD_left_HOT_right_final"
 window_size = 30  # Temporal window size
 
 # Load frames
@@ -31,12 +31,12 @@ plt.title("LSI Visualization")
 plt.show()
 
 # Save LSI Image
-output_path = "lsi_image.png"
+output_path = "lsi_image_final.png"
 cv2.imwrite(output_path, (lsi_image * 255).astype(np.uint8))
 print(f"LSI image saved to {output_path}.")
 
 # Convert frames to video
-output_video = "output.avi"
+output_video = "output2.avi"
 height, width = frames[0].shape
 video_writer = cv2.VideoWriter(output_video, cv2.VideoWriter_fourcc(*'XVID'), 120, (width, height))
 
