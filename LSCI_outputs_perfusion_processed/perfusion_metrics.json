@@ -1,0 +1,62 @@
+{
+    "blue_output_baseline_BASLER.png": {
+        "mean": 134.04509641873278,
+        "total": 19463348,
+        "std": 103.67351941296313
+    },
+    "blue_output_baseline_IDS.png": {
+        "mean": 214.4774719701498,
+        "total": 47364347,
+        "std": 76.18513678019349
+    },
+    "blue_output_final_BASLER.png": {
+        "mean": 152.5061784806103,
+        "total": 23029653,
+        "std": 88.16590909149035
+    },
+    "blue_output_final_IDS.png": {
+        "mean": 213.53112264304733,
+        "total": 47155359,
+        "std": 77.22787568018371
+    },
+    "blue_output_initial_BASLER.png": {
+        "mean": 135.47314718232636,
+        "total": 20260822,
+        "std": 101.94563821298664
+    },
+    "blue_output_initial_IDS.png": {
+        "mean": 212.9534541469688,
+        "total": 47027789,
+        "std": 77.6391652667274
+    },
+    "red_output_baseline_BASLER.png": {
+        "mean": 145.72887835971014,
+        "total": 24051677,
+        "std": 84.53786680604719
+    },
+    "red_output_baseline_IDS.png": {
+        "mean": 211.21453476788204,
+        "total": 46643773,
+        "std": 70.61776491452574
+    },
+    "red_output_final_BASLER.png": {
+        "mean": 146.71452666072332,
+        "total": 24356372,
+        "std": 86.02420214534081
+    },
+    "red_output_final_IDS.png": {
+        "mean": 205.01539214813496,
+        "total": 46058758,
+        "std": 79.2222441973824
+    },
+    "red_output_initial_BASLER.png": {
+        "mean": 144.6702344857939,
+        "total": 23666893,
+        "std": 88.44628075181606
+    },
+    "red_output_initial_IDS.png": {
+        "mean": 210.99242984417833,
+        "total": 46796433,
+        "std": 75.07428144389613
+    }
+}
