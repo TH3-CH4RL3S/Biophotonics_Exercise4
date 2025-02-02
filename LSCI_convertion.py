@@ -56,7 +56,7 @@ def load_frames_from_folder(folder_path):
     return frames
 
 
-def calculate_temporal_lsci(sequence, window_size=5):
+def calculate_temporal_lsci(sequence, window_size=0):
     """
     Calculate a simplified temporal LSCI map.
 
@@ -117,8 +117,8 @@ def visualize_and_save_lsci_map(lsci_map, output_path, title="LSCI Visualization
 # Main script
 if __name__ == "__main__":
     # Folder containing PNG frames
-    folder_path = "IDS/recorded_frames_COLD_left_HOT_right_final"  # Folder path to frames taken
-    reference_frame_path = "ROI_refrences/IDS_final_roi.png"  # Path to the reference frame
+    folder_path = r"BASLER\Basler_16_53_05_Heat_Cold"  # Folder path to frames taken
+    reference_frame_path = r"ROI_refrences\BASLER_initial_roi.png"  # Path to the reference frame
 
     # Detect ROI coordinates from the reference frame
     rois = detect_roi_coordinates(reference_frame_path)
@@ -137,8 +137,8 @@ if __name__ == "__main__":
     blue_lsci_map = calculate_temporal_lsci(blue_sequence, window_size=5)
     red_lsci_map = calculate_temporal_lsci(red_sequence, window_size=5)
 
-    blue_output = "LSCI_outputs/blue_output_final_IDS.png"
-    red_output = "LSCI_outputs/red_output_final_IDS.png"
+    blue_output = "LSCI_outputs/blue_output_initial_nofilter_basler.png"
+    red_output = "LSCI_outputs/red_output_initial_nofilter_basler.png"
 
     # Save the LSCI maps as PNGs
     visualize_and_save_lsci_map(blue_lsci_map, blue_output, title="Blue ROI Temporal LSCI Map")

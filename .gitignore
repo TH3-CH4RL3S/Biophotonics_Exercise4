@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 BASLER
 IDS
+Ohter images
 
 # C extensions
 *.so
